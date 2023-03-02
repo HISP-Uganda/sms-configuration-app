@@ -18,5 +18,7 @@ export const Navigation = () => (
         <NavigationItem path="/sent" label={i18n.t('Sent')} />
 
         <NavigationItem path="/received" label={i18n.t('Received')} />
+
+        <NavigationItem path="/sms-send" label={i18n.t('Send SMS')} />
     </Menu>
 )

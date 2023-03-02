@@ -63,6 +63,16 @@ export const ViewOverview = () => {
                             to="/received"
                         />
                     </div>
+                    <div className={s.gridItem}>
+                        <HomeCard
+                            titleText={i18n.t('Send SMS')}
+                            bodyText={i18n.t(
+                                'Send SMS messages to users and groups in DHIS2.'
+                            )}
+                            linkText={i18n.t('Send SMS')}
+                            to="/sms-send"
+                        />
+                    </div>
                 </div>
             </div>
         </TemplateSidebarNavContent>
