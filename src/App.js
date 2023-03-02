@@ -15,6 +15,7 @@ import {
 import { ViewReceivedSmsList } from './sms-inbound/index.js'
 import { ViewSentSmsList } from './sms-outbound/index.js'
 import { ViewOverview } from './sms-overview/index.js'
+import { ViewSendSMS } from './sms-send/index.js'
 
 export const App = () => (
     <AppWrapper>
@@ -37,6 +38,9 @@ export const App = () => (
 
             {/* View received sms */ ''}
             <Route path="/received" component={ViewReceivedSmsList} />
+
+            {/** Send SMS */}
+            <Route path="/sms-send"  component={ViewSendSMS}/>
 
             {/* Handle 404 */ ''}
             <Redirect from="*" to="/" />
