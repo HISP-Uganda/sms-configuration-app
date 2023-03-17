@@ -1,0 +1,15 @@
+.containerx {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 5px;
+}
+.levelDropdown {
+    border: solid 1px back;
+    display: "inline"
+
+}
+.padded {
+    width: 100%;
+}

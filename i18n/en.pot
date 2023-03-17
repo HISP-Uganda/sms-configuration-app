@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-03-03T04:04:32.733Z\n"
-"PO-Revision-Date: 2023-03-03T04:04:32.733Z\n"
+"POT-Creation-Date: 2023-03-13T12:40:05.505Z\n"
+"PO-Revision-Date: 2023-03-13T12:40:05.505Z\n"
 
 msgid "Are you sure you want to cancel? Unsaved changes will be lost"
 msgstr "Are you sure you want to cancel? Unsaved changes will be lost"
@@ -549,3 +549,45 @@ msgstr "View all received SMS"
 
 msgid "Send SMS messages to users and groups in DHIS2."
 msgstr "Send SMS messages to users and groups in DHIS2."
+
+msgid "Groups"
+msgstr "Groups"
+
+msgid "Select groups"
+msgstr "Select groups"
+
+msgid "Hello "
+msgstr "Hello "
+
+msgid "Organisation Units"
+msgstr "Organisation Units"
+
+msgid "Select group"
+msgstr "Select group"
+
+msgid "Select level"
+msgstr "Select level"
+
+msgid "Recipient"
+msgstr "Recipient"
+
+msgid "Recipients, contact or groups"
+msgstr "Recipients, contact or groups"
+
+msgid "Send SMS To"
+msgstr "Send SMS To"
+
+msgid "Select Type of Recipient"
+msgstr "Select Type of Recipient"
+
+msgid "Raw Phone Numbers"
+msgstr "Raw Phone Numbers"
+
+msgid "User Group"
+msgstr "User Group"
+
+msgid "User assigned to organisation unit"
+msgstr "User assigned to organisation unit"
+
+msgid "Organisation unit phone number"
+msgstr "Organisation unit phone number"
