@@ -59,6 +59,7 @@ export const FormSendSMS = ({ initialValues}) => {
     })
 
     const {
+        called,
         loading: loadingAreaCode, 
         data: phonesAreaCode, 
         // refetch:refetchPhoneNumberAreaCode,
@@ -159,18 +160,26 @@ export const FormSendSMS = ({ initialValues}) => {
         : i18n.t('Send SMS')
     const phoneNumberAreaCode = phonesAreaCode?.areacode?.phoneNumberAreaCode
     
-    return (
-    <>
-        {loadingAreaCode && <CircularLoader/>}
-
-        {areaCodeError && <span>{`ERROR: ${areaCodeError.message}`}</span>}
-        {(phoneNumberAreaCode === undefined) && 
+    if (areaCodeError){
+        return(
+            <NoticeBox error title={i18n.t('System Error!')}>
+                {i18n.t(areaCodeError.message)}
+            </NoticeBox>
+        )
+    }
+    
+    if (phoneNumberAreaCode === undefined){
+        return(
             <NoticeBox error title={i18n.t('Missing Configuration')}>
                 {i18n.t('"Phone Number Area Code" is not set in your DHIS2 Sytem Settings!')}
             </NoticeBox>
-        }
-
-        {(phoneNumberAreaCode !== undefined) &&
+        )
+    }
+    // console.log(">>>>>>>>>>>>", rootPaths, loadingRoots)
+    return (
+    <>
+        {loadingAreaCode || !called ?
+            (<CircularLoader/>):
             (
                 <Form
                     keepDirtyOnReinitialize
@@ -205,7 +214,7 @@ export const FormSendSMS = ({ initialValues}) => {
                             </FormRow>
 
                             {activeRecipientType === 'phoneNumbers' && (<FormRow>
-                                <FieldRecipient/>
+                                <FieldRecipient required={true}/>
                             </FormRow>)}
 
                             {activeRecipientType === 'userGroup' && (<FormRow>

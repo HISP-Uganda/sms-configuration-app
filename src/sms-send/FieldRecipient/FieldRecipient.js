@@ -8,12 +8,15 @@ import {
 import React from 'react'
 import i18n from '../../locales/index.js'
 import { dataTest } from '../../shared/index.js'
+import { PropTypes } from '@dhis2/prop-types'
 
 const { Field } = ReactFinalForm
 
-export const FieldRecipient = () => (
+export const FieldRecipient = ({
+    required
+}) => (
     <Field
-        required
+        required={required}
         dataTest={dataTest('smssend-fieldrecipient')}
         name="recipient"
         label={i18n.t('Recipient')}
@@ -22,3 +25,7 @@ export const FieldRecipient = () => (
         validate={composeValidators(string, hasValue)}
     />
 )
+
+FieldRecipient.propTypes = {
+    required: PropTypes.bool.isRequired
+}

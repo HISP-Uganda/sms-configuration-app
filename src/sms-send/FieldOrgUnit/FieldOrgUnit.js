@@ -9,6 +9,7 @@ import {
     TableRow,
     TableCell,
     SingleSelect,
+    CircularLoader,
 } from '@dhis2/ui'
 import {difference, uniq, concat} from "lodash"
 import { useDataQuery } from '@dhis2/app-runtime'
@@ -43,17 +44,15 @@ export const OU_LEVLE_PATHS_QUERY = {
     }
 }
 
-export const ROOT_OU_QUERY = {
-    organisationUnitGroups: {
-        resource: 'organisationUnits',
-        params: {
-            level: 0,
-            fields: "id,name"
-        },
-    },
-}
-
-export const useReadRootOrgUnit = () => useDataQuery(ROOT_OU_QUERY)
+export const useReadRootOrgUnit = () => useDataQuery({
+    roots: {
+        resource: "organisationUnits.json",
+        params:{
+            fields:"id,name,path",
+            level: 1
+        }
+    }
+})
 
 export const useReadOuPathsByLevel = (level) => useDataQuery(OU_LEVLE_PATHS_QUERY, {
     lazy:true, variables: {level}
@@ -71,11 +70,20 @@ export const FieldOrgUnit = ({
 }) => {
     const [selected, setSelected] = useState([])
     const [selectedLevel, setSelectedLevel] = useState("1")
-    const [selectedGroup, setSelectedGroup] = useState("")
+    const [selectedGroup, setSelectedGroup] = useState("0")
+
+    const {
+        loading:loadingRoots,
+        called, 
+        data: rootPaths,
+        error: errorLoadingRoots,
+        //refetch
+    } = useReadRootOrgUnit()
 
     const {
         loading: loadingPaths, 
-        data, error: errorLoadPaths, 
+        data, 
+        error: errorLoadPaths, 
         refetch: refetchPaths
     } = useReadOuPathsByLevel(selectedLevel)
 
@@ -107,7 +115,7 @@ export const FieldOrgUnit = ({
         console.log(selected)
         setSelected([])
     }
-    
+    console.log(">>>>>>>>>>", loadingRoots, called, rootPaths?.roots?.organisationUnits, errorLoadingRoots, data)
     
     const onClickSelectLevel = () =>{
         const paths = data?.paths?.organisationUnits
@@ -156,7 +164,13 @@ export const FieldOrgUnit = ({
         setSelectedGroup(newGroup)
         console.log("new group is", newGroup);
     }
-
+    if (loadingRoots){
+        return (<CircularLoader/>)
+    }
+    console.log(rootPaths)
+    const organisationUnits = rootPaths?.roots?.organisationUnits
+    const treeRootPaths = organisationUnits.map((ou)=>ou.path)
+    const roots = organisationUnits.map((ou)=>ou.id)
     return(<>
         
         <div className={styles.padded}>
@@ -217,14 +231,15 @@ export const FieldOrgUnit = ({
         <Field
         dataTest={dataTest('smssend-fieldorgunit')}
         name={FIELD_ORGUNIT}
-        roots={["akV6429SUqu"]}
-        initiallyExpanded={["/akV6429SUqu"]}
+        roots={roots}
+        initiallyExpanded={treeRootPaths}
         onChange={onChange} 
         selected={selected}
         singleSelection={false}
         label={i18n.t('Organisation Units')}
         component={OrganisationUnitTree}
         /> 
+        
         </div>
     </>)
 };

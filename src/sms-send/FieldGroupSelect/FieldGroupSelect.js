@@ -2,16 +2,11 @@ import {
     ReactFinalForm,
     hasValue,
     MultiSelectField,
-    MultiSelectFieldFF,
     MultiSelectOption
 } from '@dhis2/ui'
 import React, {useState} from 'react'
-import i18n from '../../locales/index.js'
 import { PropTypes } from '@dhis2/prop-types'
 import { dataTest, useReadUserGroupsQuery } from '../../shared/index.js'
-// import {uniq} from 'lodash'
-
-const { Field } = ReactFinalForm
 
 export const FieldGroupSelect = ({
     setSelectedGroups

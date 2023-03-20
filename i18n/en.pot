@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-03-13T12:40:05.505Z\n"
-"PO-Revision-Date: 2023-03-13T12:40:05.505Z\n"
+"POT-Creation-Date: 2023-03-19T10:47:52.068Z\n"
+"PO-Revision-Date: 2023-03-19T10:47:52.068Z\n"
 
 msgid "Are you sure you want to cancel? Unsaved changes will be lost"
 msgstr "Are you sure you want to cancel? Unsaved changes will be lost"
@@ -550,12 +550,6 @@ msgstr "View all received SMS"
 msgid "Send SMS messages to users and groups in DHIS2."
 msgstr "Send SMS messages to users and groups in DHIS2."
 
-msgid "Groups"
-msgstr "Groups"
-
-msgid "Select groups"
-msgstr "Select groups"
-
 msgid "Hello "
 msgstr "Hello "
 
@@ -591,3 +585,15 @@ msgstr "User assigned to organisation unit"
 
 msgid "Organisation unit phone number"
 msgstr "Organisation unit phone number"
+
+msgid "Success"
+msgstr "Success"
+
+msgid "System Error!"
+msgstr "System Error!"
+
+msgid "Missing Configuration"
+msgstr "Missing Configuration"
+
+msgid "\"Phone Number Area Code\" is not set in your DHIS2 Sytem Settings!"
+msgstr "\"Phone Number Area Code\" is not set in your DHIS2 Sytem Settings!"
